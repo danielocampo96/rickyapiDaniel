@@ -1,0 +1,79 @@
+.heroes-container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1em;
+    padding: 1em;
+    border: solid 2px blue;
+}
+
+.heroes-container > .card {
+    border: solid 2px blue;
+    border-radius: 1%;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 10px #c4c4c4;
+}
+
+.heroes-container > .card-body {
+    text-align: center;
+}
+h5, h1{
+    text-align: center;
+}
+
+.btn {
+   margin-left: 25%;
+   margin-bottom: 5%;
+   margin-top: 5%;
+    width: 50%;
+    background-color: #1c1c1c;
+    border-radius: 8%;
+    color: #fff;
+    box-shadow: 0 0 10px #000;
+    font-weight: 600;
+}
+img{
+   width: 100%;
+}
+
+
+.individual{
+    /* display: grid;
+    place-items: center;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    margin-top: auto;
+    width: 50%;
+    margin-left: 25%;
+    */
+
+    display: grid;
+    place-items: center;
+    margin: auto;
+    width: 50%;
+    max-width: 300px; 
+    
+    box-shadow: rgba(36, 66, 218, 0.871) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    text-align: center;
+    
+}
+
+@media(min-width: 768px) {
+    .heroes-container > .card {
+        width: calc(100% / 2  - 1em);
+    }
+}
+
+@media(min-width: 992px) {
+    .heroes-container > .card {
+        width: calc(100% / 3  - 1em);
+    }
+}
+
+@media(min-width: 1200px) {
+    .heroes-container > .card {
+        width: calc(100% / 4  - 1em);
+    }
+}

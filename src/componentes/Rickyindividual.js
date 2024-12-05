@@ -1,35 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import cargando from './cargando.gif'; 
-import { Link } from 'react-router-dom';
-
+import React, { useState } from 'react';
+import Swal from 'sweetalert2'
+import { useParams,useNavigate } from 'react-router-dom';
 
 
 export default function Rickyindividual() {
     const [individual, setIndividual] = useState({});
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
+    const navigate = useNavigate ()
     
     
 
-    useEffect(() => {
+    
         fetch(`https://rickandmortyapi.com/api/character/${id}`)
             .then((response) => response.json())
             .then((response) => {
                 setIndividual(response);
                 setLoading(false);
             });
-    }, [id]);
-       
+            if (loading){
+                Swal.fire({
+                    title: 'loading',
+                })
+            }
+            else Swal.close()
+    
        
     return (
         <div className='individual'>
-            {loading ? (
+            {/* {loading ? (
                 <div className="cargando">
                     <img src={cargando} alt="Loading..." />
                 </div>
             ) : (
-                <>
+                <> */}
                     <h1>
                         <img src={individual.image} alt={individual.name} onLoad={() => setLoading(false)} />
                     </h1>
@@ -39,10 +43,12 @@ export default function Rickyindividual() {
                     <p>Especie: {individual.species}</p>
                     <p>Género: {individual.gender}</p>
                     <p>Fecha de creación: <date>{individual.created}</date></p>
+
                     {/* <a href='http://localhost:3000/index'><button>Inicio</button></a> */}
-                    <link to={'/index'}><button>Inicio</button></link>
-                </>
-            )}
+                    {/* <link to={'/index'}><button>Inicio</button></link> */}
+                    <button onClick={() => navigate('/index')}>Inicio</button>
+                
+            
         </div>
     );
 }

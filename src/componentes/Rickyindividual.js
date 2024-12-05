@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import cargando from './cargando.gif'; 
+import { Link } from 'react-router-dom';
 
 
 
@@ -19,7 +20,8 @@ export default function Rickyindividual() {
                 setLoading(false);
             });
     }, [id]);
-
+       
+       
     return (
         <div className='individual'>
             {loading ? (
@@ -37,8 +39,8 @@ export default function Rickyindividual() {
                     <p>Especie: {individual.species}</p>
                     <p>Género: {individual.gender}</p>
                     <p>Fecha de creación: <date>{individual.created}</date></p>
-                    <a href='http://localhost:3000/index'><button>Inicio</button></a>
-                    {/* <link to={'/index'} */}
+                    {/* <a href='http://localhost:3000/index'><button>Inicio</button></a> */}
+                    <link to={'/index'}><button>Inicio</button></link>
                 </>
             )}
         </div>

@@ -44,8 +44,7 @@ export default function Rickyindividual() {
                     <p>Género: {individual.gender}</p>
                     <p>Fecha de creación: <date>{individual.created}</date></p>
 
-                    {/* <a href='http://localhost:3000/index'><button>Inicio</button></a> */}
-                    {/* <link to={'/index'}><button>Inicio</button></link> */}
+                   
                     <button onClick={() => navigate('/index')}>Inicio</button>
                 
             
